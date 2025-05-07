@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import tn.esprit.desak.Entity.Reservation;
 import tn.esprit.desak.ServiceInterface.IServiceReservation;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -32,4 +33,10 @@ public class ReservationController {
     public Reservation annulerRes(@PathVariable long cinEtudiant) {
         return serviceReservation.annulerReservation(cinEtudiant);
     }
+
+    @GetMapping("/getbynomunivaneeuniv/{anneeUniversite}/{nomUniversite}")
+    public List<Reservation> findByAnneeUniversitaireAndNomUniversite(Date anneeUniversite, String nomUniversite){
+        return serviceReservation.findByAnneeUniversitaireAndNomUniversite(anneeUniversite,nomUniversite);
+    }
+
 }

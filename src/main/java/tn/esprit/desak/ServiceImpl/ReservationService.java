@@ -2,6 +2,7 @@ package tn.esprit.desak.ServiceImpl;
 
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import tn.esprit.desak.Entity.Chambre;
 import tn.esprit.desak.Entity.Etudiant;
@@ -12,6 +13,7 @@ import tn.esprit.desak.Repository.ReservationRepository;
 import tn.esprit.desak.ServiceInterface.IServiceReservation;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -80,4 +82,9 @@ public class ReservationService implements IServiceReservation {
         }
         return null;
     }
+    public List<Reservation> findByAnneeUniversitaireAndNomUniversite(Date anneeUniversite,String nomUniversite)
+    {
+        return reservationRepository.findByAnneeUniversitaireAndNomUniversite(anneeUniversite,nomUniversite);
+    }
+
 }

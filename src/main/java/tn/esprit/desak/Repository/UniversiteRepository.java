@@ -12,4 +12,6 @@ public interface UniversiteRepository extends JpaRepository<Universite,Long> {
     Universite findByNomUniversiteLike(String name);
 
 
+
+
 }
